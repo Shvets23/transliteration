@@ -1,5 +1,5 @@
-let transliteration = function (inputText) {
-    let rules = [
+function translate_ua2en(inputText) {
+    var rules = [
         {'pattern': '^село$', 'replace': 'village'},
         {'pattern': '^СЕЛО$', 'replace': 'VILLAGE'},
         {'pattern': '^місто$', 'replace': 'city'},
@@ -96,18 +96,27 @@ let transliteration = function (inputText) {
         {'pattern': '`', 'replace': ''}
     ];
 
-    let words = inputText.split(/[-_ \n]/);
-    for (let n in words) {
-        let word = words[n];
-        for (let ruleNumber in rules) {
-            word = word.replace(
+    var words = inputText.split(/[-_ \n]/);
+    for (var n in words) {
+        var word = words[n];
+        for (var ruleNumber in rules) {
+            if (word.toUpperCase() !== word) {
+                word = word.replace(
                 new RegExp(rules[ruleNumber]['pattern'], 'gm'),
                 rules[ruleNumber]['replace']
             );
+            
+            } else {
+              word = word.replace(
+                new RegExp(rules[ruleNumber]['pattern'], 'gm'),
+                rules[ruleNumber]['replace']);
+                word = word.toUpperCase()
+            }
+            
         }
         inputText = inputText.replace(words[n], word);
     }
     return inputText;
-};
+}
 
 transliteration('27340, Кіровоградська обл., Олександрівський район, село Михайлівка, ВУЛИЦЯ ЗАВОДСЬКА, будинок 23');
