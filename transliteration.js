@@ -100,7 +100,7 @@ function translate_ua2en(inputText) {
     for (var n in words) {
         var word = words[n];
         for (var ruleNumber in rules) {
-            if (word.toUpperCase() !== word) {
+             if (word.toUpperCase() !== word) {
                 word = word.replace(
                 new RegExp(rules[ruleNumber]['pattern'], 'gm'),
                 rules[ruleNumber]['replace']
@@ -110,10 +110,10 @@ function translate_ua2en(inputText) {
               word = word.replace(
                 new RegExp(rules[ruleNumber]['pattern'], 'gm'),
                 rules[ruleNumber]['replace']);
-                word = word.toUpperCase()
+                word=word.toUpperCase()
             }
-            
         }
+        
         inputText = inputText.replace(words[n], word);
     }
     return inputText;
