@@ -48,8 +48,6 @@ let transliteration = function (inputText) {
         {'pattern': 'ч', 'replace': 'ch'},
         {'pattern': 'ш', 'replace': 'sh'},
         {'pattern': 'щ', 'replace': 'shch'},
-        {'pattern': 'ьо', 'replace': 'io'},
-        {'pattern': 'ьї', 'replace': 'ii'},
         {'pattern': 'ь', 'replace': ''},
         {'pattern': '^ю', 'replace': 'yu'},
         {'pattern': 'ю', 'replace': 'iu'},
